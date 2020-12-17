@@ -3,14 +3,16 @@
 #include "lists.h"
 
 /**
- * 
- * 
- * 
+ * insert_node - insert a node
+ * @head: head
+ * @number: value
+ * Return: address new node
  */
 
 listint_t *insert_node(listint_t **head, int number)
 {
 	listint_t *new, *old;
+
 	old = *head;
 	new = malloc(sizeof(listint_t));
 	if (new == NULL)
@@ -23,7 +25,7 @@ listint_t *insert_node(listint_t **head, int number)
 		new->next = *head;
 		*head = new;
 	}
-	while (old->next && new->n > old->next->n )
+	while (old->next && new->n > old->next->n)
 		old = old->next;
 	new->next = old->next;
 	old->next = new;
