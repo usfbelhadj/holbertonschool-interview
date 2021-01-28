@@ -25,7 +25,6 @@ for line in sys.stdin:
         if status_code in status_dict:
             status_dict[status_code] += 1
         size_list.append(file_size)
-    print(size_list)
     for sizes in size_list:
         sum_size = sum_size + int(sizes)
     size_list = []
@@ -36,3 +35,4 @@ for line in sys.stdin:
             print("{}: {}".format(k, status_dict[k]))
     status_dict = {'200': 0, '301': 0, '400': 0,
                    '401': 0, '403': 0, '404': 0, '405': 0, '500': 0}
+    sum_size = 0
