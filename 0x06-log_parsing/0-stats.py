@@ -26,8 +26,6 @@ try:
                 size_list.append(file_size)
             for sizes in size_list:
                 sum_size = sum_size + int(sizes)
-            size_list = []
-            words = []
             print("File size: {}".format(sum_size))
             for k, v in status_dict.items():
                 if status_dict[k] != 0:
