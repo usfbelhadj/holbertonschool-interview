@@ -36,18 +36,14 @@ try:
                 print("{}: {}".format(k, status_dict[k]))
         status_dict = {'200': 0, '301': 0, '400': 0,
                        '401': 0, '403': 0, '404': 0, '405': 0, '500': 0}
-        sum_size = 0
 except KeyboardInterrupt:
     pass
 finally:
     for sizes in size_list:
         sum_size = sum_size + int(sizes)
-    size_list = []
-    words = []
     print("File size: {}".format(sum_size))
     for k, v in status_dict.items():
         if status_dict[k] != 0:
             print("{}: {}".format(k, status_dict[k]))
     status_dict = {'200': 0, '301': 0, '400': 0,
                    '401': 0, '403': 0, '404': 0, '405': 0, '500': 0}
-    sum_size = 0
