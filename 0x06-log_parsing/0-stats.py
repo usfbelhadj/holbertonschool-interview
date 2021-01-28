@@ -15,7 +15,7 @@ sum_size = 0
 try:
     for line in sys.stdin:
         words.append(line)
-        if len(words) == 10:
+        if len(words) % 10 == 0:
             for i in range(len(words)):
                 size_file = words[i]
                 file_split = size_file.split(' ')
