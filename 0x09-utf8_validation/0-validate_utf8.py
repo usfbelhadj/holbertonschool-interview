@@ -16,7 +16,8 @@ def validUTF8(data):
     try:
         for i in range(len(charList)):
             for j in charList[i]:
-                if bytes(j, encoding='ascii') is not False:
+                b = bytes(j, encoding='ascii')
+                if b.decode('utf-8') is not False:
                     return True
     except UnicodeEncodeError:
         return False
