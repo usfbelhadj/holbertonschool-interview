@@ -14,9 +14,9 @@ def validUTF8(data):
             ch += u
     charList.append(ch)
     for i in range(len(charList)):
-        for j in charList[i]:
-            try:
+        try:
+            for j in charList[i]:
                 if bytes(j, encoding='ascii') is not False:
                     return True
-            except UnicodeEncodeError:
-                return False
+        except UnicodeEncodeError:
+            return False
