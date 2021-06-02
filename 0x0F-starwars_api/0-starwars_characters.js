@@ -2,7 +2,7 @@
 // Star Wars Characters
 
 const request = require('request');
-const url = 'https://swapi-api.hbtn.io/api/films/' + process.argv[2];;
+const url = 'https://swapi-api.hbtn.io/api/films/' + process.argv[2];
 
 request(url, async (err, response, body) => {
   if (err) {
