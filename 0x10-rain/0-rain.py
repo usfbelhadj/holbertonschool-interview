@@ -8,12 +8,16 @@ def rain(walls):
     '''
     Given a list of non-negative integers representing the heights
     '''
-    if len(walls) == 0 or len(walls) == 1 or len(walls) == 2:
-        return 0
-    up = []
-    for i in range(len(walls)):
-        if walls[i] != 0:
-            up.append(walls[i])
-    up.pop(-1)
+    res = 0
+    if len(walls) == 0:
+        return res
+    for i in range(1, len(walls) - 1):
+        l = walls[i]
+        r = walls[i]
+        for j in range(i):
+            l = max(l, walls[j])
+        for j in range(i + 1, len(walls)):
+            r = max(r, walls[j])
 
-    return sum(up)
+        res = res + (min(l, r) - walls[i])
+    return res

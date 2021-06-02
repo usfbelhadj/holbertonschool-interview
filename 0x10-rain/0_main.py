@@ -11,3 +11,9 @@ if __name__ == "__main__":
     print(rain(walls))
     walls = [3, 3]
     print(rain(walls))
+    walls = [0, 1, 0, 2, 0, 3, 0, 4]
+    print(rain(walls))
+    walls = [1, 1, 2, 0, 1, 1, 1]
+    print(rain(walls))
+    walls = [0, 2, 1, 0, 1, 3, 1, 2, 1, 1, 2, 1]
+    print(rain(walls))
