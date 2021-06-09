@@ -4,6 +4,7 @@ N queens
 """
 from sys import argv, exit
 
+
 def isSafe(row, col, result):
     """ If it' safe """
     diag1 = [l[0]+l[1] for l in result]
@@ -13,6 +14,7 @@ def isSafe(row, col, result):
     if row in rows or col in cols or row+col in diag1 or col-row in diag2:
         return False
     return True
+
 
 def Pos(N, row, col, result):
     """ Queen postition """
@@ -28,6 +30,7 @@ def Pos(N, row, col, result):
     if len(result) > 0:
         result.pop()
     return
+
 
 if __name__ == "__main__":
     length = len(argv)
