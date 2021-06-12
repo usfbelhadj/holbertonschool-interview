@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-'''
+"""
 Count it
-'''
+"""
+
 import requests
 import json
 from collections import Counter, defaultdict
