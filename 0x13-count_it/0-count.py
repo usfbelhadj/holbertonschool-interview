@@ -8,11 +8,7 @@ from collections import Counter, defaultdict
 
 
 def count_words(subreddit, word_list, res=defaultdict(int), after=None):
-    """ Write a recursive function that queries the Reddit API, parses the
-    title of all hot articles, and prints a sorted count of given keywords
-    (case-insensitive, delimited by spaces.
-    Javascript should count as javascript,
-    but java should not). """
+    """ Write a recursive function"""
 
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)\
             AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97\
