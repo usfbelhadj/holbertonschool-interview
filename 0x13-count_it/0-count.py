@@ -8,7 +8,7 @@ from collections import Counter, defaultdict
 
 
 def count_words(subreddit, word_list, res=defaultdict(int), after=None):
-    """ Write a recursive function"""
+    '''Write a recursive function'''
 
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)\
             AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97\
