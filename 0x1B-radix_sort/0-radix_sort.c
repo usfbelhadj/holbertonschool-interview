@@ -26,16 +26,7 @@ return (number / r % 10);
  * Return: integer, number of digits
  */
 
- int getLength(int number)
-{
-int count = 0;
-while (number != 0)
-{
-number /= 10;
-++count;
-}
-return (count);
-}
+
 /**
  * get_max - Returns the number of digits of the biggest int in the array.
  *
