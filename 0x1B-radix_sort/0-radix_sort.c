@@ -1,107 +1,70 @@
 #include "sort.h"
 
-
 /**
- * get_digit - Returns the numbers of digits of a number.
- * @number:integer
- * @n: interger
- * Return: integer, number of digits
- */
-int get_digit(int number, int n)
-{
-if (n == 0)
-{
-return (number % 10);
-}
-int r = 10;
-for (int x = 0; x < n - 1; x++)
-{
-r = r *r;
-}
-return (number / r % 10);
-}
-/**
- * getLength - Returns the numbers of digits of a number.
- * @number: interger
- * Return: integer, number of digits
- */
-
- int getLength(int number)
-{
-int count = 0;
-while (number != 0)
-{
-number /= 10;
-++count;
-}
-return (count);
-}
-/**
- * get_max - Returns the number of digits of the biggest int in the array.
- *
- * @array: array to seach into.
- * @size: size of the array.
- *
- * Return: the biggest element of the array.
- */
-int get_max(int *array, int size)
-{
-int maxNum, i;
-
-maxNum = array[0];
-
-for (i = 1; i < size; i++)
-{
-if (array[i] > maxNum)
-maxNum = array[i];
-}
-return (maxNum);
-}
-/**
- * radix_sort - Sorts an array of ints in ascending order using the radix sort.
- * @array: array to sort
+ * radix_sort - sorts an array of integers in ascending order
+ * using the Radix sort algorithm implement the LSD radix sort algorithm
+ * @array: the array to sort
  * @size: size of the array
- **/
+ * Return: Nothing
+ */
 void radix_sort(int *array, size_t size)
 {
+	int i, max;
 
-if (array == NULL || size < 2)
-return;
-
-
-int *sortedArray = NULL;
-int k = 0;
-int flag = 0;
-sortedArray = malloc(sizeof(int) * size);
-if (sortedArray == NULL)
-return;
-
-for (int pos = 0; pos < getLength(get_max(array, size)) + 1; pos++)
-{
-k = 0;
-if (flag != 0)
-{
-for (int j = 0; j < (int)size; j++)
-{
-array[j] = sortedArray[j];
-}
-print_array(array, size);
-
+	if (size < 2)
+		return;
+	max = getMax(array, size);
+	for (i = 1; max / i > 0; i *= 10)
+	{
+		counting(array, size, i);
+		print_array(array, size);
+	}
 }
 
-for (int rindex = 0; rindex < 10; rindex++)
+/**
+ * getMax - gets the max number in an array
+ * @array: array to search
+ * @size: size of the array
+ * Return: the biggest number in the array
+ */
+int getMax(int *array, size_t size)
 {
-for (int aindex = 0; aindex < (int)size; aindex++)
+	size_t i;
+	int max = 0;
+
+	for (i = 0; i < size; i++)
+	{
+		if (array[i] > max)
+			max = array[i];
+	}
+	return (max);
+}
+
+/**
+ * counting - counting sort of the array
+ * @array: the array to sort
+ * @size: size of the array
+ * @exp: digit to count around
+ * Return: Nothing
+ */
+void counting(int *array, int size, int exp)
 {
-if (get_digit(array[aindex], pos) == rindex)
-{
-sortedArray[k] = array[aindex];
-k++;
-}
-flag = 1;
-}
-}
-}
-free(sortedArray);
-sortedArray = NULL;
+	int *output = malloc(sizeof(int) * size);
+	int i;
+	int count[10] = {0};
+
+	if (!output)
+		return;
+	for (i = 0; i < size; i++)
+		count[(array[i] / exp) % 10]++;
+	for (i = 1; i < 10; i++)
+		count[i] += count[i - 1];
+	for (i = size - 1; i >= 0; i--)
+	{
+		output[count[(array[i] / exp) % 10] - 1] = array[i];
+		count[(array[i] / exp) % 10]--;
+	}
+	for (i = 0; i < size; i++)
+		array[i] = output[i];
+	free(output);
 }
