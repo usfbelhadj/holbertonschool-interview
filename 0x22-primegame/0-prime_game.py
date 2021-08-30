@@ -9,7 +9,7 @@ def isWinner(x, nums):
     '''
     prime = 0
     not_prime = 0
-    if nums:
+    if nums != None or x > 0:
         for i in nums:
             if(i % 2 == 0):
                 prime += 1
