@@ -5,10 +5,17 @@ def isWinner(x, nums):
     '''
     where x is the number of rounds and nums is an array of n
     '''
-    if nums:
-        if (x % 2 == 0):
-            return "Ben"
-        else:
+    prime = 0
+    not_prime = 0
+    if nums and x:
+        for i in nums:
+           if(i % 2 == 0):
+               prime += 1
+           else:
+               not_prime += 1
+        if prime > not_prime:
             return "Maria"
+        else:
+            return "Ben"
     else:
         return None
