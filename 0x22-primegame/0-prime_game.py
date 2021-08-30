@@ -19,7 +19,5 @@ def isWinner(x, nums):
             return "Maria"
         elif prime < not_prime:
             return "Ben"
-        elif prime == not_prime:
-            return None
     else:
         return None
