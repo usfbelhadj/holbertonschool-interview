@@ -9,10 +9,10 @@ def isWinner(x, nums):
     not_prime = 0
     if nums and x:
         for i in nums:
-           if(i % 2 == 0):
-               prime += 1
-           else:
-               not_prime += 1
+            if(i % 2 == 0):
+                prime += 1
+            else:
+                not_prime += 1
         if prime > not_prime:
             return "Maria"
         else:
